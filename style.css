@@ -1,0 +1,101 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.nav .nav__list li {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.nav .nav__list li span{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #000000;
+    left: -100px;
+    bottom: 0;
+    transition: 300ms ease-in-out;
+}
+.nav .nav__list li:hover span{
+    left: 0;
+}
+header{
+    width: 100%;
+    height: 15vh;
+    background: #c2c2c2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+.logo{
+    width: 10%;
+    position: relative; 
+}
+.nav__list{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 20px;
+}
+.nav .nav__list li a{
+    text-decoration: none;
+    color: #1c1c1c;
+    align-items: center;
+}
+
+.abrir_menu{
+    background: transparent;
+    border: 0;
+}
+.abrir_menu:hover{
+    background: #a09c9c;
+}
+.abrir_menu{
+    display: none;
+}
+@media screen and (max-width:720px){
+    .nav .nav__list li span{
+        background: #a09c9c;
+    }
+    .nav__list {
+        flex-direction: column;
+        background: #000000;
+        align-items: end;
+    }
+    .nav{
+        opacity: 0;
+        transform: translateX(500px);
+        visibility: hidden;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #000000;
+        box-shadow: 0 0 30px 0vmax rgba(255, 255, 255, 0);
+        padding: 3rem;
+        border-radius: 10px 0px 0px 70px ;
+        transition:  box-shadow 300ms ;
+        transition:  transform 300ms ease-in-out;
+        gap: 1rem;
+    }
+    .nav .nav__list li a{
+        text-decoration: none;
+        color: #f5f4f4;
+    }
+    .nav.visible{
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+        box-shadow: 0 0 300px 100vmax rgba(0, 0, 0, 0.5);
+    }
+    .abrir_menu{
+        display: block;
+    }
+}
+
